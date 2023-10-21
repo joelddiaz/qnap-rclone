@@ -9,9 +9,9 @@ FROM debian:latest
 MAINTAINER <Joel>
 LABEL description="Container for running rclone (https://rclone.org/) on a QNAP device."
 
-RUN apt-get update && apt-get upgrade -y && apt-get clean
-RUN apt-get update && apt-get install -y wget unzip && apt-get clean
-RUN wget -O /tmp/rclone.zip https://downloads.rclone.org/rclone-current-linux-amd64.zip && \
+RUN apt update && apt upgrade -y && apt clean
+RUN apt update && apt install -y wget unzip && apt clean
+RUN wget -O /tmp/rclone.zip https://downloads.rclone.org/v1.64.2/rclone-v1.64.2-linux-amd64.zip && \
     unzip -j /tmp/rclone.zip -d /usr/local/rclone && \
     rm /tmp/rclone.zip && \
     ln -s /usr/local/rclone/rclone /usr/local/bin/rclone
